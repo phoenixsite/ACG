@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+build/
+src/data/
+src/models/
+storage/ILSVRC2012/ILSVRC2012_img_val_for_ImageFolder/
+storage/ILSVRC2012/val/
+storage/ILSVRC2012/*.tar
+storage/ILSVRC2012/*.tar.gz
+storage/ILSVRC2012/ILSVRC2012_devkit_t12/
+debug/
