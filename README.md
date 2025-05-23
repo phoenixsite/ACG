@@ -68,6 +68,12 @@ export PYTHONHASHSEED=0
 + ImageNet
   1. `cd ../storage/ILSVRC2012`
   2. Download `ILSVRC2012_img_val.tar` and `ILSVRC2012_devkit_t12.tar.gz` from [ImageNet official site](https://image-net.org/index.php)
+
+  ```bash
+  wget https://image-net.org/data/ILSVRC/2012/ILSVRC2012_devkit_t12.tar.gz
+  wget https://image-net.org/data/ILSVRC/2012/ILSVRC2012_img_val.tar
+  ```
+
   ```bash
   $ ls
   ILSVRC2012_img_val.tar
