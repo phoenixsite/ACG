@@ -1,19 +1,17 @@
-FROM nvidia/cuda:11.0-devel-ubuntu20.04
+FROM nvcr.io/nvidia/pytorch:25.04-py3
 
-WORKDIR /AutoCG
-COPY . .
+USER crc00098
+WORKDIR /workspace/ACG
+#COPY . .
 
-ENV DEBIAN_FRONTEND=noninteractive
 ENV CUBLAS_WORKSPACE_CONFIG=:4096:8 
-ENV LIBRARY_PATH /usr/local/cuda/lib64/stubs
-ENV GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+ENV PYTHONHASHSEED=0
 
-RUN apt-get update
-RUN apt-get install -y python3 python3-pip git libgl1-mesa-dev
-RUN apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6
+RUN pip install --upgrade pip
+RUN apt update
 
-RUN pip3 install -r requirements.txt
-RUN pip3 install git+https://github.com/fra31/auto-attack
+RUN pip install -r requirements.txt
+#RUN pip install git+https://github.com/fra31/auto-attack
 
 RUN cd src/utils/cluster_coef_c \
     && python3 setup.py build_ext -i
