@@ -337,7 +337,7 @@ class ImageNetAttack(object):
         assert dataset_name == "imagenet"
         assert self.config.n_examples <= 5000
         dataset = CustomImageFolder(
-            "../storage/ILSVRC2012/ILSVRC2012_img_val_for_ImageFolder/val",
+            "../storage/ILSVRC2012/ILSVRC2012_img_val_for_ImageFolder/",
             transform=PREPROCESSINGS[self.prepr],
         )
 
