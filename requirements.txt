@@ -3,7 +3,8 @@
 gitpython==3.1.24
 
 # for pure execution
-scipy==1.7.3
+#scipy==1.7.3
+scipy
 cython==0.29.26
 cudra==0.0.4b
 torch==1.10.2+cu113
@@ -19,6 +20,6 @@ attrdict==2.0.1
 colorlog==6.6.0
 
 # for visualization
-matplotlib==3.5.1
+matplotlib==3.5.3
 
 setuptools

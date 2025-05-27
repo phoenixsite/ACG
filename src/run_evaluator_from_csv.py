@@ -47,6 +47,7 @@ def evaluate(root, n_restarts):
     time = os.path.getmtime(json_path)
     date = datetime.fromtimestamp(time)
 
+    print("Llego1")
     # 
     try:
         loss_files = list(sorted(glob.glob(f"{root}/loss_restart*")))
@@ -63,14 +64,16 @@ def evaluate(root, n_restarts):
             if len(loss_files) > 0
             else []
         )
+        print(loss)
         num_instances = loss.shape[0]
 
         loss = loss[:, :n_restarts, :]
         attack_success_rate = (
             f"{((loss[:, :, -1].max(axis=1) >= 0).sum() / loss.shape[0]) * 100:.2f}"
         )
-    except:
-        raise EvaluatorException
+    except Exception  as e:
+        print("Excepciónn")
+        raise EvaluatorException from e
     postfix = f"restart-{n_restarts}" if n_restarts != 5 else ""
     attacker_name = root.split("/")[-1] + postfix
 
@@ -97,18 +100,18 @@ def evaluate(root, n_restarts):
 
 
 def main(directories, n_restarts):
-
+    
     for root in sorted(directories, reverse=True):
         if not os.path.isdir(root):
-            # print(root)
-            # print("skip")
+            print(root)
+            print("skip")
             continue
         try:
             evaluate(root, n_restarts)
-        except EvaluatorException:
-            # print(root)
+        #except EvaluatorException:
+            #print(root)
             # print("skip")
-            pass
+            
         except:
             print(root)
             assert False
